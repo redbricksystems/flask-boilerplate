@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="header-section">
+	<div class="row header-row">
+		<div class="span12 masthead">
+			<h1 class="heading">Welcome, {{ current_user.first_name}} {{ current_user.last_name}}</li></h1>
+		</div>
+	</div>
+</div>
+<div class="header-push">
+</div>
+{% endblock %}

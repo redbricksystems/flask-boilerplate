@@ -1,0 +1,17 @@
+<html>
+<head>
+	<title>Flask Boilerplate</title>
+</head>
+<body>
+	<h2>Hi, {{user.first_name}}!</h2><br>
+	<br>
+	<form role="form" method="POST" action="" name="add_post">
+	   {{form.hidden_tag()}}
+
+	  {{form.author(class_="form-control", placeholder="title")}}
+	  {{form.post(class_="form-control", placeholder="content")}}
+	 <input type="submit" value="Add">
+
+	</form>
+</body>
+</html>

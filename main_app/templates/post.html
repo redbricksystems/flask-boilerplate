@@ -1,0 +1,19 @@
+<html>
+<head>
+	<title>Flask Boilerplate</title>
+</head>
+<body>
+	<h3>{{post.title}}</h3><br>
+	<p>{{post.post}}</p><br><br>
+
+	{% for comment in comments %}
+		<b>{{comment.author}}</b>: {{comment.comment}} <br>
+	{% endfor %}
+	<form role="form" method="POST" action="" name="show_post">
+	  {{form.hidden_tag()}}
+	  {{form.author(class_="form-control", placeholder="name")}}
+	  {{form.comment(class_="form-control", placeholder="add your comment here!")}}
+	 <input type="submit" value="Add Comment">
+	</form>
+</body>
+</html>

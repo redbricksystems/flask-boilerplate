@@ -1,0 +1,95 @@
+{% set site_name = 'app' %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	{% block head %}
+	<title>{% block title %}{{ site_name }}{% endblock %}</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="author" content="">
+	<meta charset="utf-8">
+
+	<meta property="og:title" content=""/>
+	<meta property="og:type" content="website"/>
+	<meta property="og:url" content=""/>
+	<meta property="og:image" content="" />
+	<meta property="og:site_name" content='{{ site_name }}'/>
+	<meta property="og:description" content=""/>
+
+	<link href="{{ url_for('static', filename='css/bootstrap.css') }}" rel="stylesheet">
+	<link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
+
+	<!-- SUPPORT FOR IE6-8 OF HTML5 ELEMENTS -->
+	<!--[if lt IE 9]>
+		  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+	{% endblock %}
+  </head>
+
+  <body>
+
+	{% block navbar %}
+	<div class="navbar navbar-static-top">
+		<div class="navbar-inner">
+			<div class="container">
+			  <a class="brand" href="/">{{ site_name }}</a>
+			  <div class="nav-collapse">
+				<ul class="nav">
+				</ul>
+				{% block navbar_right %}
+				<ul class="nav pull-right">
+					<li><a href="/">Home</a></li>
+				</ul>
+				{% endblock %}
+			  </div><!--/.nav-collapse -->
+			</div>
+		  </div>
+	</div>
+	{% endblock %}
+
+	<div class="container page">
+		<div class="content main">
+
+		  {% block content %}
+
+		  {% endblock %}
+{%- with messages = get_flashed_messages(with_categories=true) -%}
+  {% if messages %}
+    <ul class=flashes>
+    {% for category, message in messages %}
+      <li class="{{ category }}">{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{%- endwith %}
+		  		<ul>
+		{% if current_user.is_authenticated() %}
+		  <li>Hello {{ current_user.email }}</li>
+		  <li><a href="{{ url_for('security.logout') }}">Logout</a></li>
+		{% else %}
+		  <li><a href="{{ url_for('security.login') }}">Login</a></li>
+		  <li><a href="{{ url_for('security.register') }}">Register</a></li>
+		{% endif %}
+		</ul>
+		</div>
+
+		<hr>
+
+		{% block footer %}
+		<footer id="footer" class="footer">
+			<div class="footer-left">
+				<a href="/about">About</a> |
+				<a href="/">Home</a>
+			</div>
+			<div class="footer-right">
+				<span>&copy; 2013 {{ site_name }}</span>
+			</div>
+		</footer>
+		{% endblock %}
+	</div>
+  </body>
+</html>
