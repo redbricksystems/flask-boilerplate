@@ -1,7 +1,7 @@
 # Flask Boilerplate app with user managment system
 
 ###Introduction
-Flask is a microframework for web development written in Python. It's very easy and powerful. We have created a simple Flask-Boilerplate app that many of you might need to get started with your first project. The app has a capability of registering users. Each user can publish a post and comment.
+Flask is microframework for web development written in Python. It's very easy and powerfull. We have created a simple Flask-Boilerplate app that many of you might need to get started with your first project. The app has a capability of registering users. Each user can publish a post and comment.
 
 ###Packages included
 ####Flask-Security
@@ -93,8 +93,8 @@ Open up your web browser and navigate to **localhost:5000** and you'll probably 
 
 ###What's Next?
 
-- Adding Bootstrap to your flask app (Done)
+- Adding Bootstrap to your flask app
 - Adding update/delete function on posts
 - Deploy your flask app on heroku platform
 - Deploy using apache
-- Adding unit tests by using Python Nose package
+- adding Unit tests by using Python Nose package

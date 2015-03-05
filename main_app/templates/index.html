@@ -1,69 +1,12 @@
-
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../static/css/sign_in.css" rel="stylesheet">
-    <link href="../static/css/custom.css" rel="stylesheet">
-
-  </head>
-
-  <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="/">Flask Boilerplate</a>
-        </div>
-        
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            {% if current_user.is_authenticated() %}
-            	<li><a href="/add_post">Add Post</a></li>
-           		<li><a href="/posts">Show Posts</a></li>
-           	{% endif %}
-          </ul>
-          
-          {% if current_user.is_authenticated() %}
-			<form class="navbar-form navbar-right" role="form" name="login" method="POST" action="">
-          	  <a href="{{ url_for('security.logout') }}" class="btn btn-success">Logout</a>
-	      	</form>	  
-		  {% else %}
-			<form class="navbar-form navbar-right" role="form" name="login" method="POST" action="">
-          	  <a href="{{ url_for('security.login') }}" class="btn btn-success">Sign In</a>
-          	  <a href="{{ url_for('security.register') }}" class="btn btn-success">New? Register</a>
-	      	</form>  
-		  {% endif %}
-          
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
-
-    <div class="container">
-      <div class="starter-template" align="center">
-        {% if current_user.is_authenticated() %}
-        	<br>
-        	<h2>Hi, {{user.first_name}}</h2><br>
-        	<h3>Welcome to Flask Boilerplate sample app</h3>
-        {% else %}
-        	<br><br>
-        	<h2>Welcome to Flask Boilerplate sample app</h2>
-        {% endif %}
-      </div>
-
-    </div><!-- /.container -->
-    <div id="footer">  
-        <center><font color="white">Copyright &copy; Redbrick Systems 2015</font></center>
-  	</div>
-  </body>
-</html>
+{% extends "base.html" %}
+{% block content %}
+<div class="header-section">
+	<div class="row header-row">
+		<div class="span12 masthead">
+			<h1 class="heading">Welcome Home.</h1>
+		</div>
+	</div>
+</div>
+<div class="header-push">
+</div>
+{% endblock %}
