@@ -1,0 +1,34 @@
+Metadata-Version: 1.1
+Name: Flask-Security
+Version: 1.7.1
+Summary: Simple security for Flask apps
+Home-page: https://github.com/mattupstate/flask-security
+Author: Matt Wright
+Author-email: matt@nobien.net
+License: MIT
+Description: 
+        Flask-Security
+        ==============
+        
+        Flask-Security is a Flask extension that aims to add quick and simple security
+        to your Flask applications.
+        
+        Resources
+        ---------
+        
+        * `Documentation <http://packages.python.org/Flask-Security/>`_
+        * `Issue Tracker <https://github.com/mattupstate/flask-security/issues>`_
+        * `Source <https://github.com/mattupstate/flask-security>`_
+        * `Development Version
+          <https://github.com/mattupstate/flask-security/raw/develop#egg=Flask-Security-dev>`_
+        
+        
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
