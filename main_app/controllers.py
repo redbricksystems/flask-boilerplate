@@ -34,27 +34,29 @@ def security_mail_processor():
 # app controllers
 @app.route('/')
 def index():
-	return render_template('index.html')
+	return render_template('index.html',
+		user = current_user)
 
 @app.route('/user-profile')
 @login_required
 def home():
-	my_var = {'name': 'admin', 'description': 'I am admin'}
-	role = user_datastore.find_or_create_role("admin")
-	user_datastore.add_role_to_user(current_user, role)
-	if len(current_user.roles) == 0:
-		print "You are no access to Data files!" + str(role)
+	"""
+		For adding roles to user, following functions can be use
+	"""
+	#my_var = {'name': 'admin', 'description': 'I am admin'}
+	#role = user_datastore.find_or_create_role("admin")
+	#user_datastore.add_role_to_user(current_user, role)
+	#if len(current_user.roles) == 0:
+	#	print "You are no access to Data files!" + str(role)
 	return render_template('user_profile.html')
 
 @app.route('/add_post', methods = ['GET', 'POST'])
 @login_required
 def add_post():
-	user_id = User.objects.get_or_404(first_name="Hassan")
 	form = PostsForm()
 	if form.validate_on_submit():
 		post = Posts(title=form.author.data, post=form.post.data, author_id=str(current_user.id))
 		post.save()
-		print "I am now save! this is your post!"
 	return render_template('add_post.html', 
         user = current_user,
         form = form)
@@ -76,6 +78,8 @@ def show_post(post_id):
 	if form.validate_on_submit():
 		comment = Comments(author=form.author.data, comment=form.comment.data, post_id=post_id)
 		comment.save()
+		form.author.data = ""
+		form.comment.data = ""
 	return render_template("post.html",
         user = current_user,
         post = post,

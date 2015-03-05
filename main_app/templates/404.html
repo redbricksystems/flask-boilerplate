@@ -1,6 +1,72 @@
-{% extends "base.html" %}
-{% block title %}Page Not Found{% endblock %}
-{% block content %}
-	<h3>404</h3>
-	<h4>Sorry, but the page you were trying to view does not exist.</h4>
-{% endblock %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/css/sign_in.css" rel="stylesheet">
+    <link href="../static/css/custom.css" rel="stylesheet">
+
+
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="localhost:5000">Flask Boilerplate</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            {% if current_user.is_authenticated() %}
+            	<li><a href="/add_post">Add Post</a></li>
+           		<li><a href="/posts">Show Posts</a></li>
+           	{% endif %}
+          </ul>
+          {% if current_user.is_authenticated() %}
+			<form class="navbar-form navbar-right" role="form" name="login" method="POST" action="">
+          	  <a href="{{ url_for('security.logout') }}" class="btn btn-success">Logout</a>
+	      	</form>	  
+		  {% else %}
+			<form class="navbar-form navbar-right" role="form" name="login" method="POST" action="">
+          	  <a href="{{ url_for('security.login') }}" class="btn btn-success">Sign In</a>
+          	  <a href="{{ url_for('security.register') }}" class="btn btn-success">New? Register</a>
+	      	</form>  
+		  {% endif %}
+          
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+
+      <div class="starter-template" align="center">
+        <h2>Not Found, Error - 404</h2>
+      </div>
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+  <div id="footer">  
+        <center><font color="white">Copyright &copy; Redbrick Systems 2015</font></center>
+  </div>
+</html>
